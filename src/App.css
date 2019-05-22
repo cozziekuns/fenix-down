@@ -1,33 +1,72 @@
 .App {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.content-nav {
   text-align: center;
+  font-size: 1.25em;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.content-nav li {
+  display: inline;
+  padding: 0 48px 4px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.profile-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.profile-container ul {
+  list-style-type: none;
+}
+
+.profile-container li {
+  margin: 0 48px;
+}
+
+.profile-container-right {
+  padding-top: 2em;
+}
+
+.profile-name {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.profile-dan {
+  font-size: 1.25em;
+}
+
+.profile-rating {
+  font-size: 1.25em;
+}
+
+.profile-total-games {
+  font-size: 1.25em;
+}
+
+.nav-bar-separator {
+  margin-bottom: 48px;
+}
+
+.overview-graphs-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.overview-graphs-element {
+  width: 288px;
+  text-align: center;
+  padding: 0 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.overview-graphs-title {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.overview-graphs-footer {
+  font-size: 1em;
+  margin: 0.5em 0;
 }
