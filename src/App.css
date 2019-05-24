@@ -1,6 +1,21 @@
 .App {
   width: 1024px;
   margin: 0 auto;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+a {
+  color: rgba(80, 112, 176);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(32, 64, 96);
+}
+
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 0;
 }
 
 .content-nav {
@@ -10,7 +25,12 @@
 
 .content-nav li {
   display: inline;
-  padding: 0 48px 4px;
+  padding: 0 48px calc(1em - 2px);
+}
+
+.content-nav-highlight {
+  font-weight: bold;
+  border-bottom: 2px solid;
 }
 
 .profile-container {
@@ -63,10 +83,80 @@
 
 .overview-graphs-title {
   font-size: 1.25em;
+  font-weight: bold;
   margin-bottom: 0.5em;
 }
 
 .overview-graphs-footer {
   font-size: 1em;
   margin: 0.5em 0;
+}
+
+.overview-other-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.overview-other-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.overview-match-history {
+  width: 640px;
+  padding: 0 16px;
+}
+
+.overview-match-history > table {
+  border-spacing: 0 4px;
+  width: 100%
+}
+
+.overview-match-history td {
+  text-align: center;
+}
+
+.overview-match-history tr:nth-child(even) {
+  background-color: rgba(240, 240, 240);
+}
+
+.overview-misc {
+  width: 320px;
+  padding: 0 16px;
+}
+
+.overview-stats {
+  margin-bottom: 1em;
+}
+
+.overview-stats > table {
+  width: 100%;
+}
+
+.overview-highlights {
+  margin-bottom: 1em;
+}
+
+.overview-highlights > table {
+  width: 100%;
+}
+
+.overview-highlights-value {
+  text-align: right;
+}
+
+.overview-match-history-placement {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.overview-match-history > table ul { 
+  list-style-type: none;
+  padding: 0;
+}
+
+.overview-match-history > table li {
+  height: 1.25em;
 }
