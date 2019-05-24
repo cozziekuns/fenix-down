@@ -104,7 +104,7 @@ class App extends React.Component {
       }
     });
   }
-  
+
   componentDidMount() {
     this.createPlacementGraph();
     this.createScoreGraph();
@@ -313,23 +313,6 @@ class App extends React.Component {
                 <tr>
                   <td>Call Rate:</td>
                   <td className="overview-highlights-value">30.9%</td>
-                </tr>
-              </table>
-            </div>
-            <div className="overview-other-title">
-              Highlights
-            </div>
-            <div className="overview-highlights">
-            <table>
-                <tr>
-                  <td>Biggest Comeback</td>
-                  <td className="overview-highlights-value">45300</td>
-                  <td className="overview-highlights-value"><a href="#">Replay</a></td>
-                </tr>
-                <tr>
-                  <td>Biggest Throw</td>
-                  <td className="overview-highlights-value">-42000</td>
-                  <td className="overview-highlights-value"><a href="#">Replay</a></td>
                 </tr>
               </table>
             </div>
