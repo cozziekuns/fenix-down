@@ -74,7 +74,7 @@ export default class ScoreGraph extends React.Component {
     );
 
     const total = scores.reduce((total, curr) => total + curr, 0);
-    return total / scores.length;
+    return Math.round(total / scores.length);
   }
 
   render() {
