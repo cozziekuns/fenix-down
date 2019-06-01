@@ -11,8 +11,14 @@ export default class RatingGraph extends React.Component {
     };
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     this.createGraph();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.hanchan !== this.props.hanchan) {
+      this.updateGraph();
+    }
   }
 
   getRating(hanchan, username) {
@@ -29,13 +35,7 @@ export default class RatingGraph extends React.Component {
     const canvas = this.refs.scoreCanvas;
     const ctx = canvas.getContext('2d');
 
-    let ratings = this.props.hanchan.map(
-      hanchan => this.getRating(hanchan, this.props.username)
-    );
-
-    ratings.reverse();
-
-    new Chart(ctx, {
+    this.chart = new Chart(ctx, {
       type: 'line',
       data: {
           labels: new Array(20),
@@ -43,20 +43,27 @@ export default class RatingGraph extends React.Component {
               label: 'Rating',
               borderColor: 'rgb(224, 128, 128)',
               backgroundColor: 'rgba(0, 0, 0, 0)',
-              data: ratings,
+              data: new Array(20),
           }]
       },
 
       options: {
         scales: {
-          xAxes: [{
-            ticks: {
-              display: false,
-            }
-          }],
+          xAxes: [{ticks: { display: false } }],
         },
       }
     });
+  }
+
+  updateGraph() {
+    let ratings = this.props.hanchan.map(
+      hanchan => this.getRating(hanchan, this.props.username)
+    );
+
+    ratings.reverse();
+
+    this.chart.data.datasets[0].data = ratings; 
+    this.chart.update();
   }
 
   getAverageRating() {

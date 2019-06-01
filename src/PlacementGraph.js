@@ -11,9 +11,14 @@ export default class PlacementGraph extends React.Component {
     };
   }
 
-  // Fix Dis
-  componentDidUpdate() {
+  componentDidMount() {
     this.createGraph();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.hanchan !== this.props.hanchan) {
+      this.updateGraph();
+    }
   }
 
   getPlacement(hanchan, username) {
@@ -36,7 +41,7 @@ export default class PlacementGraph extends React.Component {
 
     placements.reverse();
 
-    new Chart(ctx, {
+    this.chart = new Chart(ctx, {
       type: 'line',
       data: {
           labels: new Array(20),
@@ -44,16 +49,14 @@ export default class PlacementGraph extends React.Component {
               label: 'Placement',
               borderColor: 'rgb(224, 128, 128)',
               backgroundColor: 'rgba(0, 0, 0, 0)',
-              data: placements,
+              data: new Array(20),
           }]
       },
   
       options: {
         scales: {
           xAxes: [{
-            ticks: {
-              display: false,
-            }
+            ticks: { display: false },
           }],
           yAxes: [{
             ticks: {
@@ -66,6 +69,16 @@ export default class PlacementGraph extends React.Component {
         },
       }
     });
+  }
+
+  updateGraph() {
+    let placements = this.props.hanchan.map(
+      hanchan => this.getPlacement(hanchan, this.props.username)
+    );
+    placements.reverse();
+
+    this.chart.data.datasets[0].data = placements; 
+    this.chart.update();
   }
 
   getAveragePlacement() {

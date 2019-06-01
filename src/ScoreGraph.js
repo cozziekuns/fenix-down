@@ -11,8 +11,14 @@ export default class ScoreGraph extends React.Component {
     };
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     this.createGraph();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.hanchan !== this.props.hanchan) {
+      this.updateGraph();
+    }
   }
 
   getScore(hanchan, username) {
@@ -29,13 +35,7 @@ export default class ScoreGraph extends React.Component {
     const canvas = this.refs.scoreCanvas;
     const ctx = canvas.getContext('2d');
 
-    let scores = this.props.hanchan.map(
-      hanchan => this.getScore(hanchan, this.props.username)
-    );
-
-    scores.reverse();
-
-    new Chart(ctx, {
+    this.chart = new Chart(ctx, {
       type: 'line',
       data: {
           labels: new Array(20),
@@ -43,20 +43,29 @@ export default class ScoreGraph extends React.Component {
               label: 'Score',
               borderColor: 'rgb(224, 128, 128)',
               backgroundColor: 'rgba(0, 0, 0, 0)',
-              data: scores,
-          }]
+              data: new Array(20),
+          }],
       },
 
       options: {
         scales: {
           xAxes: [{
-            ticks: {
-              display: false,
-            }
+            ticks: { display: false },
           }],
         },
       }
     });
+  }
+
+  updateGraph() {
+    let scores = this.props.hanchan.map(
+      hanchan => this.getScore(hanchan, this.props.username)
+    );
+
+    scores.reverse();
+
+    this.chart.data.datasets[0].data = scores; 
+    this.chart.update();
   }
 
   getAverageScore() {
@@ -65,7 +74,7 @@ export default class ScoreGraph extends React.Component {
     );
 
     const total = scores.reduce((total, curr) => total + curr, 0);
-    return total / scores.length
+    return total / scores.length;
   }
 
   render() {
@@ -75,7 +84,7 @@ export default class ScoreGraph extends React.Component {
         <canvas ref="scoreCanvas" width="288" height="216">
         </canvas>
         <div className="overview-graphs-footer">
-          Average: <strong>{this.getAverageScore()}</strong>
+          Average: <strong>{this.getAverageScore().toString()}</strong>
         </div>
       </div>
     )
