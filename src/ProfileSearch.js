@@ -38,7 +38,12 @@ export default class ProfileSearch extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input 
+            type="text" 
+            value={this.state.value} 
+            onChange={this.handleChange} 
+            spellcheck="false"
+          />
         </label>
       </form> 
     )
