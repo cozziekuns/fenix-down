@@ -7,7 +7,6 @@ import OverviewStats from './OverviewStats.js';
 import PlacementGraph from './PlacementGraph.js';
 import ScoreGraph from './ScoreGraph.js';
 import RatingGraph from './RatingGraph.js';
-import ProfileSearch from './ProfileSearch.js';
 import './App.css';
 
 Chart.defaults.global.legend.display = false;

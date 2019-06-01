@@ -60,7 +60,7 @@ export default class Profile extends React.Component {
               Dan: <strong>{ProfileUtil.getDanString(this.state.dan)}</strong>&nbsp;
             </li>
             <li className="profile-rating">
-              Rating: <strong>R{this.state.rating}</strong>
+              Last Recorded Rating: <strong>R{this.state.rating}</strong>
             </li>
           </ul>
         </div>
