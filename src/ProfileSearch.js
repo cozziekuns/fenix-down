@@ -42,7 +42,7 @@ export default class ProfileSearch extends React.Component {
             type="text" 
             value={this.state.value} 
             onChange={this.handleChange} 
-            spellcheck="false"
+            spellCheck="false"
           />
         </label>
       </form> 

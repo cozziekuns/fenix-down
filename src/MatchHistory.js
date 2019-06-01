@@ -116,7 +116,7 @@ export class MatchHistoryRow extends React.Component {
           player => {
             if (player.username === this.props.username) {
               return (
-                <li>
+                <li key={player.id}>
                   <a 
                     href="#" 
                     onClick={() => this.props.usernameHandler(player.username)}
@@ -127,7 +127,7 @@ export class MatchHistoryRow extends React.Component {
               )
             } else {
               return (
-                <li>
+                <li key={player.id}>
                   <a 
                     href="#" 
                     onClick={() => this.props.usernameHandler(player.username)}
@@ -150,13 +150,13 @@ export class MatchHistoryRow extends React.Component {
           player => {
             if (player.username === this.props.username) {
               return (
-                <li>
+                <li key={player.id}>
                   <strong>{ProfileUtil.getDanString(player.dan)}</strong>
                 </li>
               )
             } else {
               return (
-                <li>{ProfileUtil.getDanString(player.dan)}</li>
+                <li key={player.id}>{ProfileUtil.getDanString(player.dan)}</li>
               )
             }
           }
@@ -172,13 +172,13 @@ export class MatchHistoryRow extends React.Component {
           player => {
             if (player.username === this.props.username) {
               return (
-                <li>
+                <li key={player.id}>
                   <strong>R{Math.round(player.rating)}</strong>
                 </li>
               )
             } else {
               return (
-                <li>R{Math.round(player.rating)}</li>
+                <li key={player.id}>R{Math.round(player.rating)}</li>
               )
             }
           }
@@ -194,13 +194,13 @@ export class MatchHistoryRow extends React.Component {
           player => {
             if (player.username === this.props.username) {
               return (
-                <li>
+                <li key={player.id}>
                   <strong>{ProfileUtil.getSeatString(player.seat)}</strong>
                 </li>
               )
             } else {
               return (
-                <li>{ProfileUtil.getSeatString(player.seat)}</li>
+                <li key={player.id}>{ProfileUtil.getSeatString(player.seat)}</li>
               )
             }
           }
@@ -216,13 +216,13 @@ export class MatchHistoryRow extends React.Component {
           player => {
             if (player.username === this.props.username) {
               return (
-                <li>
+                <li key={player.id}>
                   <strong>{player.score}</strong>
                 </li>
               )
             } else {
               return (
-                <li>{player.score}</li>
+                <li key={player.id}>{player.score}</li>
               )
             }
           }
