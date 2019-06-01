@@ -51,7 +51,10 @@ export default class Profile extends React.Component {
         <div>
           <ul>
             <li className="profile-name">
-              <ProfileSearch usernameHandler={this.props.usernameHandler}/>
+              <ProfileSearch 
+                username={this.props.username}
+                usernameHandler={this.props.usernameHandler}
+              />
             </li>
             <li className="profile-dan">
               Dan: <strong>{ProfileUtil.getDanString(this.state.dan)}</strong>&nbsp;

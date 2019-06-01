@@ -10,6 +10,10 @@ export default class ProfileSearch extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ value: props.username })
+  }
+
   handleChange(event) {
     this.setState({value: event.target.value});
   }
