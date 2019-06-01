@@ -7,12 +7,13 @@ import OverviewStats from './OverviewStats.js';
 import PlacementGraph from './PlacementGraph.js';
 import ScoreGraph from './ScoreGraph.js';
 import RatingGraph from './RatingGraph.js';
+import ProfileSearch from './ProfileSearch.js';
 import './App.css';
 
 Chart.defaults.global.legend.display = false;
 Chart.defaults.global.tooltips.enabled = false;
 
-let username = 'Dasuke';
+let username = 'liebe';
 
 export default class App extends React.Component {
 
@@ -58,7 +59,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Profile username={this.state.username}/>
+        <Profile
+          username={this.state.username}
+          usernameHandler={this.updateUsernameHandler}
+        />
         <nav className="content-nav">
           <ul>
             <li className="content-nav-highlight">Overview</li>

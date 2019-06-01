@@ -1,5 +1,6 @@
 import React from 'react';
 import ProfileUtil from './ProfileUtil.js';
+import ProfileSearch from './ProfileSearch.js';
 
 export default class Profile extends React.Component {
 
@@ -50,7 +51,7 @@ export default class Profile extends React.Component {
         <div>
           <ul>
             <li className="profile-name">
-              {this.props.username}
+              <ProfileSearch usernameHandler={this.props.usernameHandler}/>
             </li>
             <li className="profile-dan">
               Dan: <strong>{ProfileUtil.getDanString(this.state.dan)}</strong>&nbsp;
@@ -66,7 +67,7 @@ export default class Profile extends React.Component {
               &nbsp;
             </li>
             <li className="profile-dan">
-              Stable Dan: <strong>{this.state.stableDan}段</strong>
+              Stable Dan: <strong>WIP段</strong>
             </li>
             <li className="profile-rating">
               Total Recorded Games: <strong>{this.state.totalGames}</strong>

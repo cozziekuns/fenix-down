@@ -49,7 +49,7 @@ hr {
   padding-top: 2em;
 }
 
-.profile-name {
+.profile-name input {
   font-size: 2em;
   font-weight: bold;
 }
